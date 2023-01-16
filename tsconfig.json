@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "typeRoots": [
+            "node_modules/@types", // 默认值
+            "src/types"
+        ],
+        "types": ["unplugin-vue-define-options/macros-global" /* ... */],
+        "target": "esnext",
+        "useDefineForClassFields": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "strict": true,
+        "jsx": "preserve",
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "lib": ["esnext", "dom"],
+        "baseUrl": "./",
+        "paths": {
+//            "@": ["src"],
+            "@/*": ["src/*"],
+//            "@client/*": ["@client/*"]
+        }
+    },
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+    "references": [{ "path": "./tsconfig.node.json" }]
+}
