@@ -77,7 +77,6 @@ http.interceptors.response.use(
         // 移除重复请求
         canceler.removePendingRequest(err.config || {});
         // 异常情况console，方便排查问题
-        console.log('error', err);
         if (axios.isCancel(err)) {
             ElMessage({
                 showClose: true,
