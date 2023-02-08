@@ -1,15 +1,14 @@
 // 实现 请求错误时重新发送接口
 import { isJsonStr } from './tools';
-import { AxiosError, AxiosInstance } from 'axios';
+import { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
 /**
  * @param { 失败信息 AxiosError } err
  * @param { 实例化的单例 AxiosInstance } axios
  * @returns
  */
 export function againRequest(err: AxiosError, axios: AxiosInstance) {
-    const config = err.config;
+    const config = err.config as AxiosRequestConfig;
     // config.retry 具体接口配置的重发次数
-    // @ts-ignore
     if (!config || !config.retry) return Promise.reject(err);
 
     // 设置用于记录重试计数的变量 默认为0

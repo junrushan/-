@@ -50,6 +50,7 @@ export default defineConfig({
         // 设置代理
         proxy: {
             '/api': {
+                // target: 'http://192.168.0.161:9000', //网易云测试
                 target: 'http://101.35.109.105:3006', //网易云测试
                 // target: 'http://10.0.9.62:8080', //代理地址，这里设置的地址会代替axios中设置的baseURL
                 // target: 'your https address',

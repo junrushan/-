@@ -4,25 +4,53 @@
     <div><el-button type="primary" :loading="loading" @click="xxxxxx"> 点击测试进度条2 </el-button></div>
     <div><el-button type="primary" :loading="loading" @click="xxxxxx"> 点击测试进度条3 </el-button></div>
     <br />
-    <div>
-        <div v-for="item in showMes.artists" :key="item.id">
-            {{ item.name }}
-            <div>
-                <img :src="item.img1v1Url" style="width: 50px; height: 50px" :alt="item.name" />
-                <img :src="item.picUrl" style="width: 50px; height: 50px" :alt="item.name" />
-            </div>
-        </div>
-    </div>
+    <div><el-cascader v-model:value="values" :props="props" /></div>
+    <div><Address></Address></div>
+    <!--    <div>-->
+    <!--        <div v-for="item in showMes.artists" :key="item.id">-->
+    <!--            {{ item.name }}-->
+    <!--            <div>-->
+    <!--                <img :src="item.img1v1Url" style="width: 50px; height: 50px" :alt="item.name" />-->
+    <!--                <img :src="item.picUrl" style="width: 50px; height: 50px" :alt="item.name" />-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
 </template>
 <script lang="ts" setup name="login">
-import { reqSingerList } from '@/api/module';
+import { addresaaaa, reqSingerList } from '@/api/module';
 import { onMounted, ref } from 'vue';
+import Address from '@/pages/Address.vue';
 import { debounce } from 'lodash-es';
 // export interface Result<T = any> {
 //   code: number;
 //   message: string;
 //   data: T;
 // }
+import type { CascaderProps } from 'element-plus';
+
+const values = ref('');
+
+let id = 0;
+const props: CascaderProps = {
+    // lazy: true,
+    // value: 'code_id',
+    // label: 'code_name',
+    // lazyLoad(node, resolve) {
+    //     const vFlag = node.level || 0;
+    //     const code = node.value ? node.value : '';
+    //     const param = {
+    //         v_flag: vFlag + 1,
+    //         code_id: code
+    //     };
+    //     addresaaaa(param).then((res: any) => {
+    //         const resData = res?.result as Array<any>;
+    //         resData.forEach((item: any) => {
+    //             item.leaf = vFlag === 2;
+    //         });
+    //     });
+    // }
+};
+
 const loading = ref<boolean>(false);
 const type = ref<number>(-1); // 歌手类型
 const area = ref<number>(-1); // 歌手地区

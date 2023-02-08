@@ -44,3 +44,11 @@ export interface singerAlbum {
 export function reqSingerList(params: singerListParams) {
     return Get('/artist/list', { params });
 }
+
+interface Addres {
+    v_flag?: any;
+    code_id?: any;
+}
+export function addresaaaa(params: Addres) {
+    return Get('/self-service/base/listSsq', { params });
+}
